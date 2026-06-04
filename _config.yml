@@ -1,0 +1,42 @@
+title: Orb Wiki
+description: >-
+  Set up, customize, and get the most out of Orb — Create Your Jarvis.
+  Bring-your-own-brain, self-hostable, offline-capable.
+
+# Templated docs look: sidebar nav + search (the "just the docs" theme,
+# rendered by GitHub Pages via remote_theme).
+remote_theme: just-the-docs/just-the-docs
+color_scheme: dark
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+
+search_enabled: true
+search:
+  heading_level: 2
+  previews: 3
+
+# Sidebar footer / top-right link
+aux_links:
+  "Orb-Wiki on GitHub":
+    - "https://github.com/ninjahawk/Orb-Wiki"
+aux_links_new_tab: true
+
+# Small print under the nav
+footer_content: >-
+  Community wiki for Orb. Free-API limits and provider availability change
+  often — treat every list here as a living document and send a PR.
+
+# Apply the theme's default layout to every page (so pages don't need to
+# declare it individually).
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+# Don't build these.
+exclude:
+  - README.md
+  - LICENSE
