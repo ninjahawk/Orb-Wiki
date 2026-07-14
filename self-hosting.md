@@ -28,7 +28,9 @@ things on that machine — and you reach it from your phone, at home or anywhere
 
 ## Install (overview)
 
-1. Get the Orb server (download / installer — link TBD as the public release lands).
+1. Get the Orb server: clone **[github.com/getorb/Orb-Backend](https://github.com/getorb/Orb-Backend)**,
+   then follow its `README` — the guided **`SETUP.md`** (Claude Code walks you through it) or
+   the fully manual **`SELF_HOSTING.md`**.
 2. Run the one-time setup (installs dependencies).
 3. Start the server. On first run it generates a **unique pairing token** for your install.
 4. Pair your phone: scan the QR code the server shows (or enter the URL + token by hand).
