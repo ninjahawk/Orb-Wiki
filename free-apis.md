@@ -30,7 +30,7 @@ Order them by what you want first (fastest, or highest-quality) — Orb handles 
 
 - **In the app:** Settings → add a provider, paste a key, set the order. Keys are stored
   in your device keychain. (Easiest — start here.)
-- **On your own server:** set the `JARVIS_FREE_BACKENDS` environment variable (a JSON
+- **On your own server:** set the `ORB_FREE_BACKENDS` environment variable (a JSON
   list). See the format below. (For self-hosters — see **[Self-Hosting](self-hosting.md)**.)
 
 Any provider that speaks the standard **OpenAI Chat Completions** format works — which is
@@ -52,7 +52,7 @@ almost all of them.
 Get a key from the provider (usually a free signup), then add it in the app or on your
 server.
 
-## Server config format (`JARVIS_FREE_BACKENDS`)
+## Server config format (`ORB_FREE_BACKENDS`)
 
 A JSON list, in priority order. Each entry:
 

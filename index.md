@@ -3,7 +3,7 @@ title: Home
 nav_order: 1
 ---
 
-# Orb — Create Your Jarvis
+# Orb — The Assistant That Talks First
 
 Orb is a voice-first AI you actually *own*. You name it, you shape its personality,
 and you decide what brain runs behind it. The AI model is just an engine in the

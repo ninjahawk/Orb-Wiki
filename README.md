@@ -1,7 +1,7 @@
 # Orb Wiki
 
 Documentation and the public site for [Orb](https://github.com/getorb) — the proactive
-AI presence. **Create your Jarvis.**
+AI presence. **The assistant that talks first — on hardware you own.**
 
 Published with GitHub Pages (Jekyll + the [just-the-docs](https://just-the-docs.com)
 theme). Guides live here: getting started, connecting your PC, brains & models,

@@ -29,7 +29,7 @@ Any of these serve an OpenAI-compatible endpoint:
 Add it like any other backend — but with **no API key** (it's your own machine):
 
 - **In the app:** Settings → add a provider → enter the local address, leave the key blank.
-- **On your server:** add an entry to `JARVIS_FREE_BACKENDS` with no `api_key_env`:
+- **On your server:** add an entry to `ORB_FREE_BACKENDS` with no `api_key_env`:
 
 ```json
 {

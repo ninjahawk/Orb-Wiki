@@ -10,11 +10,9 @@ ways to reach it, depending on whether you want it only at home or from anywhere
 
 ## Pairing the app
 
-In the app: **Settings → Your Server → Connect.** Then either:
-
-- **Scan the QR code** the server displays — this fills in the address and pairing token
-  automatically (the easy way), or
-- **Enter the address by hand** — the server URL plus the pairing token.
+In the app: **Settings → Your PC.** Enter the server's address and its pairing token,
+then **Save & Connect**. (QR pairing — scan a code the server displays to fill both in
+automatically — is on the way; today you enter them by hand once.)
 
 Your phone stores the connection securely (in the keychain) and reconnects on its own from
 then on. To switch machines later, just connect to a different server.
@@ -36,7 +34,7 @@ private network between your devices without opening any ports to the public int
 
 1. Install Tailscale on the PC and on your phone, sign in to both with the same account.
 2. The PC gets a stable private address on your "tailnet."
-3. Point the app at that address (or scan the QR — the server can show its tailnet address).
+3. Point the app at that address (the server prints its tailnet address on startup).
 
 - ✅ Reach your Orb from anywhere, securely.
 - ✅ No ports exposed to the open internet; only your own devices can connect.
@@ -61,4 +59,4 @@ machine. Nothing about your server's capabilities is hidden or misrepresented in
   running. Some routers isolate devices ("AP isolation") — turn that off, or use Tailscale.
 - **Can't connect away from home:** you need a tunnel (Option B). A bare home IP won't be
   reachable from outside without one.
-- **"Unauthorized":** the pairing token is wrong or stale — re-scan the QR / re-pair.
+- **"Unauthorized":** the pairing token is wrong or stale — re-enter the token from the server.

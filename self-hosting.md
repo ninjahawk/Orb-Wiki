@@ -33,8 +33,8 @@ things on that machine — and you reach it from your phone, at home or anywhere
    the fully manual **`SELF_HOSTING.md`**.
 2. Run the one-time setup (installs dependencies).
 3. Start the server. On first run it generates a **unique pairing token** for your install.
-4. Pair your phone: scan the QR code the server shows (or enter the URL + token by hand).
-   See **[Connect Your PC](connect-your-pc.md)**.
+4. Pair your phone: enter the server URL + token in **Settings → Your PC** (QR pairing
+   is on the way). See **[Connect Your PC](connect-your-pc.md)**.
 
 That's it — your phone now talks to your server.
 
@@ -43,7 +43,7 @@ That's it — your phone now talks to your server.
 Your server can use, in order of your choosing:
 
 - **Your own AI account** (if you have one logged in on that PC), and/or
-- **Free APIs** you've configured via `JARVIS_FREE_BACKENDS` — see
+- **Free APIs** you've configured via `ORB_FREE_BACKENDS` — see
   **[Free APIs & Chaining](free-apis.md)**, and/or
 - **A local model** running on that PC or another machine on your network — see
   **[Local Inference](local-inference.md)**, and/or
