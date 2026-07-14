@@ -10,7 +10,7 @@ ways to reach it, depending on whether you want it only at home or from anywhere
 
 ## Pairing the app
 
-In the app: **Settings → Your PC.** Enter the server's address and its pairing token,
+In the app: **the menu (☰) → Your PC.** Enter the server's address and its pairing token,
 then **Save & Connect**. (QR pairing — scan a code the server displays to fill both in
 automatically — is on the way; today you enter them by hand once.)
 

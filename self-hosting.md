@@ -33,7 +33,7 @@ things on that machine — and you reach it from your phone, at home or anywhere
    the fully manual **`SELF_HOSTING.md`**.
 2. Run the one-time setup (installs dependencies).
 3. Start the server. On first run it generates a **unique pairing token** for your install.
-4. Pair your phone: enter the server URL + token in **Settings → Your PC** (QR pairing
+4. Pair your phone: enter the server URL + token in **the menu (☰) → Your PC** (QR pairing
    is on the way). See **[Connect Your PC](connect-your-pc.md)**.
 
 That's it — your phone now talks to your server.
