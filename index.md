@@ -33,7 +33,7 @@ host yourself.
 2. **[Brains & Models](brains-and-models.md)** — the tiers, and how Orb stays consistent.
 3. **[Free APIs & Chaining](free-apis.md)** — get effectively unlimited compute for free.
 4. **[Self-Hosting](self-hosting.md)** — run your own Orb server.
-5. **[Connect Your PC](connect-your-pc.md)** — link the app to your server (LAN or anywhere).
+5. **[Connect Your PC](connect-your-pc.md)** — link the app to your server, privately or from anywhere.
 6. **[Local Inference](local-inference.md)** — run a model on your gaming PC and stream it.
 7. **[Connectors](connectors.md)** — calendar, reminders, and more.
 8. **[FAQ](faq.md)** — privacy, offline, cost, troubleshooting.
