@@ -10,8 +10,8 @@ how powerful its brain is.
 
 ## 1. Install the app
 
-Install Orb from the App Store (or TestFlight while in beta). On first launch, Orb
-walks you through naming it and choosing its personality.
+Install **[Orb from the App Store](https://apps.apple.com/us/app/orb-ai/id6776376035)**
+(free). On first launch, Orb walks you through naming it and choosing its personality.
 
 ## 2. Pick how it thinks
 
