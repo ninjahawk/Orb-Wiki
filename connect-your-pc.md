@@ -5,58 +5,79 @@ nav_order: 6
 
 # Connect Your PC
 
-Once your [Orb server](self-hosting.md) is running, you point the app at it. There are two
-ways to reach it, depending on whether you want it only at home or from anywhere.
+Once your [Orb server](self-hosting.md) is running, you point the app at it. The app
+talks to the server over an encrypted (HTTPS/WSS) connection, so the server needs an
+address that supports that — which is exactly what Tailscale gives you for free, in
+one command, without opening any ports.
 
 ## Pairing the app
 
-In the app: **the menu (☰) → Your PC.** Enter the server's address and its pairing token,
-then **Save & Connect**. (QR pairing — scan a code the server displays to fill both in
-automatically — is on the way; today you enter them by hand once.)
+In the app: **the menu (☰) → Your PC.** Enter the server's address and its pairing
+token, then **Save**. Two rules that prevent nearly every failed pairing:
 
-Your phone stores the connection securely (in the keychain) and reconnects on its own from
-then on. To switch machines later, just connect to a different server.
+- **Address = the bare host only** (`yourpc.tail1234.ts.net`) — no `https://`, no
+  port, no trailing slash. The app builds the full URLs itself.
+- **Paste the token, never retype it.** It's long on purpose; one dropped character
+  fails silently. Email or message it to yourself from the PC.
 
-## Option A — Home network (LAN), zero setup
+The connection details are stored on your phone and it reconnects on its own from
+then on. To switch machines later, just enter a different server. (QR pairing — scan
+a code the server displays to fill both fields automatically — is on the way; today
+you paste them once.)
 
-If your phone and PC are on the **same Wi‑Fi**, the app can talk to the server directly over
-your local network using the PC's local address (something like `192.168.x.x`). Nothing to
-install — it just works at home.
+## Option A — Private tunnel (recommended)
 
-- ✅ Simplest possible setup.
-- ⚠️ Only works while you're on the same network as the PC.
+```powershell
+tailscale serve --bg 8340
+```
 
-## Option B — Anywhere, via a private tunnel (Tailscale)
+Install [Tailscale](https://tailscale.com) (free) on the PC **and** on your phone,
+signed into the same account. Only devices on your private tailnet can reach the
+server — nothing is exposed to the internet at all.
 
-To reach your server when you're *away* from home, use a private tunnel. We recommend
-[**Tailscale**](https://tailscale.com) — it's free for personal use and creates a secure
-private network between your devices without opening any ports to the public internet.
+- ✅ Reach your Orb from anywhere, on the most private footing available.
+- ⚠️ The phone needs the Tailscale app installed and switched on.
 
-1. Install Tailscale on the PC and on your phone, sign in to both with the same account.
-2. The PC gets a stable private address on your "tailnet."
-3. Point the app at that address (the server prints its tailnet address on startup).
+## Option B — Public URL
 
-- ✅ Reach your Orb from anywhere, securely.
-- ✅ No ports exposed to the open internet; only your own devices can connect.
-- ⚠️ One-time install of Tailscale on both devices.
+```powershell
+tailscale funnel --bg 8340
+```
+
+The server gets a public HTTPS URL that works from any network with nothing extra on
+the phone. Anyone who somehow learned the URL would still need your token — and you
+should make that strict: set `ORB_HTTP_AUTH=1` in the server's `.env` and restart it,
+so **every** request requires the token.
+
+- ✅ Works from any network; nothing to install on the phone.
+- ⚠️ The URL is publicly reachable — the token (and `ORB_HTTP_AUTH=1`) is the lock.
+
+## What about plain home Wi‑Fi, no Tailscale?
+
+Not today. The app requires an encrypted connection, and a bare local address like
+`192.168.x.x` can't provide one — so a direct LAN-only mode isn't currently
+supported with the App Store build. Tailscale's private option is the same "only my
+devices" result, with encryption handled for you.
 
 ## A note on streaming back and forth
 
-The app and your server keep a live two-way connection — your voice and messages go up, Orb's
-replies (and visual cards) come back, in real time. Heavier features like viewing your desktop
-stream ride the same connection as they roll out.
+The app and your server keep a live two-way connection — your voice and messages go
+up, Orb's replies (and visual cards) come back, in real time. Heavier features like
+viewing your desktop stream ride the same connection as they roll out.
 
 ## Is this allowed on the App Store?
 
-Yes. Connecting an app to a personal server you run is well-established (the same pattern as
-SSH clients and self-hosted-app companions). Orb is fully functional on its own on-device; the
-server connection is an **optional, clearly-labeled** advanced feature you configure to your own
-machine. Nothing about your server's capabilities is hidden or misrepresented in the app.
+Yes. Connecting an app to a personal server you run is well-established (the same
+pattern as SSH clients and self-hosted-app companions). Orb is fully functional on
+its own on-device; the server connection is an **optional, clearly-labeled** feature
+you configure to your own machine.
 
 ## Troubleshooting
 
-- **Can't connect on LAN:** make sure both devices are on the same Wi‑Fi and the server is
-  running. Some routers isolate devices ("AP isolation") — turn that off, or use Tailscale.
-- **Can't connect away from home:** you need a tunnel (Option B). A bare home IP won't be
-  reachable from outside without one.
-- **"Unauthorized":** the pairing token is wrong or stale — re-enter the token from the server.
+- **"Not reachable" right after saving:** it's almost always the address format
+  (bare host only) or a mistyped token (paste it). Full checklist:
+  [Self-Hosting → If it says "not reachable"](self-hosting.md).
+- **Private option not connecting away from home:** the phone's Tailscale app must
+  be installed, signed into the same account, and toggled on.
+- **Rejected connections:** the server logs every attempt in `backend_err.log`,
+  including exactly which check failed — read it before guessing.
